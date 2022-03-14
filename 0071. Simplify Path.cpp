@@ -7,8 +7,8 @@ public:
     string simplifyPath(string path)
     {
         string res = "", tmp = "";
-        vector<string> stk;
         stringstream ss(path);
+        vector<string> stk;
         while (getline(ss, tmp, '/'))
         {
             if (tmp == "" || tmp == ".")

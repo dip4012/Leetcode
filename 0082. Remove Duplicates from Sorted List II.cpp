@@ -19,9 +19,9 @@ public:
 
         while (head != nullptr)
         {
-            if (head->next && head->val == head->next->val)
+            if (head->next && head->next->val == head->val)
             {
-                while (head->next && head->val == head->next->val)
+                while (head->next && head->next->val == head->val)
                 {
                     head = head->next;
                 }
@@ -33,6 +33,7 @@ public:
             }
             head = head->next;
         }
+
         return sentinel->next;
     }
 };

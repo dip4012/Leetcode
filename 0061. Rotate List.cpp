@@ -16,12 +16,11 @@ class Solution
 public:
     ListNode *rotateRight(ListNode *head, int k)
     {
-        if (!head)
+        if (head == nullptr)
             return nullptr;
 
         int len = 1;
         ListNode *newHead, *tail;
-
         newHead = tail = head;
         while (tail->next)
         {
@@ -29,7 +28,6 @@ public:
             len++;
         }
         tail->next = head;
-
         k = k % len;
         if (k)
         {
