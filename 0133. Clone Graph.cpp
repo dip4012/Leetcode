@@ -31,7 +31,7 @@ class Solution
 public:
     Node *cloneGraph(Node *node)
     {
-        if (!node)
+        if (node == nullptr)
             return nullptr;
 
         if (copy.find(node) == copy.end())
