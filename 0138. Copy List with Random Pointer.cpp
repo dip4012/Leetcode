@@ -22,14 +22,14 @@ class Solution
 public:
     Node *copyRandomList(Node *head)
     {
-        Node *itr = head, *next;
+        Node *itr = head;
+
         while (itr != nullptr)
         {
-            next = itr->next;
-            Node *copy = new Node(itr->val);
-            copy->next = next;
-            itr->next = copy;
-            itr = next;
+            Node *temp = itr->next;
+            itr->next = new Node(itr->val);
+            itr->next->next = temp;
+            itr = temp;
         }
 
         itr = head;
@@ -40,18 +40,17 @@ public:
             itr = itr->next->next;
         }
 
+        Node *dummyNode = new Node(0);
+        Node *crawl = dummyNode;
         itr = head;
-        Node *copyNode = new Node(0);
-        Node *copyItr = copyNode;
         while (itr != nullptr)
         {
-            copyItr->next = itr->next;
-            copyItr = copyItr->next;
-
+            crawl->next = itr->next;
+            crawl = crawl->next;
             itr->next = itr->next->next;
             itr = itr->next;
         }
 
-        return copyNode->next;
+        return dummyNode->next;
     }
 };
